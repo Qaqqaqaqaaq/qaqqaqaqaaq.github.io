@@ -1,13 +1,21 @@
 ---
 layout: default
-title: Non-math Projects
+title: Non-math projects
 lang: en
 slug: other-projects
 ---
 
-<h1>Non-math Projects</h1>
+{% assign t = site.data.translations[page.lang] %}
 
-<div class="subsection-links">
-  <a href="/en/gis-projects.html">{{ site.data.translations[page.lang].gis_projects }}</a>
-  <a href="/en/adivasi-poetry.html">{{ site.data.translations[page.lang].poetry }}</a>
-</div>
+<section>
+  <h1>Non-math projects</h1>
+
+  <p>Everything that isn't mathematics: geography, maps, translation, and writing.</p>
+
+  <div class="subsection-links">
+    <a href="/en/gis-projects.html">{{ t.gis_projects }}</a>
+    <a href="/en/maps.html">{{ t.maps }}</a>
+    <a href="/en/writings.html">{{ t.writings }}</a>
+    <a href="/en/adivasi-poetry.html">{{ t.poetry }}</a>
+  </div>
+</section>

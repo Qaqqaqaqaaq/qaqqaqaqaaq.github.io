@@ -4,36 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} - {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <meta name="description" content="{{ page.description | default: site.description | strip_newlines | truncate: 160 }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body>
-<nav>
-  <div class="nav-links">
-    <a href="/{{ page.lang }}/index.html">{{ site.data.translations[page.lang].home }}</a>
-    <a href="/{{ page.lang }}/math.html">{{ site.data.translations[page.lang].math }}</a>
-    <a href="/{{ page.lang }}/other-projects.html">{{ site.data.translations[page.lang].other_projects }}</a>
-    <a href="/{{ page.lang }}/qaqqaqaqaaq.html">{{ site.data.translations[page.lang].about_name }}</a>
+
+{% assign t = site.data.translations[page.lang] %}
+{% assign math_pages = "math,math-projects,math-notes" | split: "," %}
+{% assign other_pages = "other-projects,gis-projects,adivasi-poetry,writings,maps" | split: "," %}
+
+<header class="masthead">
+  <div class="masthead-name">
+    <a href="/{{ page.lang }}/index.html">{{ site.title }}</a>
   </div>
-  
-  {% if page.slug == 'index' %}
-    <div class="language-switcher">
-      <a href="/en/{{ page.slug }}.html" {% if page.lang == 'en' %}class="active"{% endif %}>EN</a>
-      <span class="separator">|</span>
-      <a href="/fr/{{ page.slug }}.html" {% if page.lang == 'fr' %}class="active"{% endif %}>FR</a>
-      <span class="separator">|</span>
-      <a href="/hi/{{ page.slug }}.html" {% if page.lang == 'hi' %}class="active"{% endif %}>HI</a>
+  <hr class="masthead-rule">
+
+  <nav>
+    <div class="nav-links">
+      <a href="/{{ page.lang }}/index.html"
+         {% if page.slug == 'index' %}class="current"{% endif %}>{{ t.home }}</a>
+      <a href="/{{ page.lang }}/math.html"
+         {% if math_pages contains page.slug %}class="current"{% endif %}>{{ t.math }}</a>
+      <a href="/{{ page.lang }}/other-projects.html"
+         {% if other_pages contains page.slug %}class="current"{% endif %}>{{ t.other_projects }}</a>
+      <a href="/{{ page.lang }}/qaqqaqaqaaq.html"
+         {% if page.slug == 'qaqqaqaqaaq' %}class="current"{% endif %}>{{ t.about_name }}</a>
     </div>
-  {% else %}
-    <div></div>
-  {% endif %}
-</nav>
 
-  <main>
-    {{ content }}
-  </main>
+    {% include language-switcher.html %}
+  </nav>
+</header>
 
-  <footer>
-    <p>Website by Cedric Phillips using Jekyll and Github. Updated July 2026.</p>
-  </footer>
+<main>
+  {{ content }}
+</main>
+
+<footer>
+  <p>{{ t.footer }} {{ t.updated }} {{ site.time | date: "%Y-%m" }}.</p>
+</footer>
+
 </body>
 </html>

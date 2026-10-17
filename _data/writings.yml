@@ -1,0 +1,37 @@
+# ---------------------------------------------------------------------------
+# Writings — essays, translations, notes: anything that isn't a maths project.
+#
+# To add one:
+#   1. put the file somewhere in the repo (pdf2/ is the usual spot)
+#   2. copy the commented block below, uncomment it, fill it in
+#   3. newest first — the page lists them in the order they appear here
+#
+# Only `title.en` and `file` are needed. Any language you leave out falls back
+# to English, so French and Hindi can be filled in later without anything
+# breaking. Drop `summary` entirely if you just want the title as a link.
+# ---------------------------------------------------------------------------
+
+# - file: /pdf2/my-essay.pdf
+#   date: 2026
+#   kind:
+#     en: Essay
+#     fr: Essai
+#     hi: लेख
+#   title:
+#     en: The title in English
+#     fr: Le titre en français
+#     hi: हिंदी में शीर्षक
+#   summary:
+#     en: A sentence or two about what it is.
+#     fr: Une phrase ou deux pour le présenter.
+#     hi: इसके बारे में एक-दो लाइनें।
+
+- page: /writings/trail-of-the-dead.html
+  kind:
+    en: Essay
+    fr: Essai
+    hi: लेख
+  title:
+    en: The Trail of the Dead
+  summary:
+    en: A drive from Whistler to Pavilion Lake, through Lillooet, in a summer of wildfire smoke.

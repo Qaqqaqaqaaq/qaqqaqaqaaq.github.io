@@ -1,0 +1,44 @@
+---
+layout: default
+title: लेखन
+lang: hi
+slug: writings
+---
+
+{% assign t = site.data.translations[page.lang] %}
+{% assign items = site.data.writings %}
+{% assign count = items | size %}
+
+<section>
+  <h1>लेखन</h1>
+
+  <p>ऐसी लिखाइयाँ जो गणित के पेपर नहीं हैं &mdash; लेख, अनुवाद, और वह सब जो इस साइट पर कहीं और फ़िट नहीं हुआ।</p>
+
+  {% if count > 0 %}
+    <div class="entries">
+      {% for w in items %}
+        {% assign ttl = w.title[page.lang] | default: w.title.en %}
+        {% assign kind = w.kind[page.lang] | default: w.kind.en %}
+        {% assign blurb = w.summary[page.lang] | default: w.summary.en %}
+        <div class="entry">
+          <h2>{% if w.page %}<a href="{{ w.page }}">{{ ttl }}</a>{% else %}{{ ttl }}{% endif %}</h2>
+          {% if kind or w.date %}
+            <div class="entry-meta">
+              {% if kind %}<span>{{ kind }}</span>{% endif %}
+              {% if w.date %}<span>{{ w.date }}</span>{% endif %}
+            </div>
+          {% endif %}
+          {% if blurb %}<p>{{ blurb }}</p>{% endif %}
+          {% if w.page or w.file %}
+            <div class="entry-links">
+              {% if w.page %}<a href="{{ w.page }}">{{ t.read }}</a>{% endif %}
+              {% if w.file %}<a href="{{ w.file }}" target="_blank" rel="noopener">{{ t.pdf }}</a>{% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty-note">{{ t.nothing_yet }}</p>
+  {% endif %}
+</section>

@@ -1,0 +1,36 @@
+# ---------------------------------------------------------------------------
+# Maps.
+#
+# To add one:
+#   1. drop the image in assets/images/maps/   (jpg, png or svg)
+#   2. copy the commented block below, uncomment it, fill it in
+#   3. newest first — the grid follows the order here
+#
+# `image` is what shows in the grid. `link` is optional: point it at a
+# full-resolution image or a PDF to make the plate clickable. Only `image`
+# and `title.en` are needed; other languages fall back to English.
+# ---------------------------------------------------------------------------
+
+# - image: /assets/images/maps/my-map.jpg
+#   link: /assets/images/maps/my-map-full.jpg
+#   date: 2026
+#   tools: ArcGIS Pro
+#   title:
+#     en: The map's title
+#     fr: Le titre de la carte
+#     hi: नक़्शे का नाम
+#   caption:
+#     en: A line about what it shows.
+#     fr: Une ligne sur ce qu'elle montre.
+#     hi: यह क्या दिखाता है, एक लाइन में।
+
+- image: /assets/images/maps/wakashan-languages.webp
+  link: /assets/images/maps/wakashan-languages.webp
+  title:
+    en: Wakashan languages and dialects
+    fr: Les langues wakashanes et leurs dialectes
+    hi: वाकाशन भाषाएँ और उनकी बोलियाँ
+  caption:
+    en: The North and South Wakashan languages of the British Columbia coast and Vancouver Island, with their dialects.
+    fr: Les langues wakashanes du Nord et du Sud, sur la côte de la Colombie-Britannique et l'île de Vancouver, avec leurs dialectes.
+    hi: ब्रिटिश कोलंबिया के तट और वैंकूवर आइलैंड की उत्तरी और दक्षिणी वाकाशन भाषाएँ, उनकी बोलियों के साथ।

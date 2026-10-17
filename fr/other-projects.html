@@ -5,11 +5,17 @@ lang: fr
 slug: other-projects
 ---
 
+{% assign t = site.data.translations[page.lang] %}
+
 <section>
   <h1>Autres projets</h1>
 
+  <p>Tout ce qui n'est pas des mathématiques : géographie, cartes, traduction et écriture.</p>
+
   <div class="subsection-links">
-    <a href="/fr/gis-projects.html">Projets SIG</a>
-    <a href="/fr/adivasi-poetry.html">Traduction de poésie Adivasi</a>
+    <a href="/fr/gis-projects.html">{{ t.gis_projects }}</a>
+    <a href="/fr/maps.html">{{ t.maps }}</a>
+    <a href="/fr/writings.html">{{ t.writings }}</a>
+    <a href="/fr/adivasi-poetry.html">{{ t.poetry }}</a>
   </div>
 </section>

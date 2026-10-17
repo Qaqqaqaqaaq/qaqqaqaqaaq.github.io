@@ -1,0 +1,45 @@
+---
+layout: default
+title: Maps
+lang: en
+slug: maps
+---
+
+{% assign t = site.data.translations[page.lang] %}
+{% assign items = site.data.maps %}
+{% assign count = items | size %}
+
+<section>
+  <h1>Maps</h1>
+
+  <p>Maps I've made &mdash; some for coursework, most for my own amusement.</p>
+
+  {% if count > 0 %}
+    <div class="plates">
+      {% for m in items %}
+        {% assign ttl = m.title[page.lang] | default: m.title.en %}
+        {% assign cap = m.caption[page.lang] | default: m.caption.en %}
+        <figure class="plate">
+          {% if m.link %}
+            <a href="{{ m.link }}" target="_blank" rel="noopener">
+              <img src="{{ m.image }}" alt="{{ ttl }}"{% unless forloop.first %} loading="lazy"{% endunless %}>
+            </a>
+          {% else %}
+            <span class="plate-frame">
+              <img src="{{ m.image }}" alt="{{ ttl }}"{% unless forloop.first %} loading="lazy"{% endunless %}>
+            </span>
+          {% endif %}
+          <figcaption>
+            <span class="plate-title">{{ ttl }}</span>
+            {% if cap %}{{ cap }}{% endif %}
+            {% if m.tools or m.date %}
+              <span class="plate-meta">{{ m.tools }}{% if m.tools and m.date %}, {% endif %}{{ m.date }}</span>
+            {% endif %}
+          </figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty-note">{{ t.nothing_yet }}</p>
+  {% endif %}
+</section>

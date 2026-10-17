@@ -1,3 +1,8 @@
+{% comment %}
+  Shown wherever the current page exists in all three languages. Pages without
+  a per-language counterpart (the 404) set `no_switcher: true` in front matter.
+{% endcomment %}
+{% unless page.no_switcher %}
 <div class="language-switcher">
   <a href="/en/{{ page.slug }}.html" {% if page.lang == 'en' %}class="active"{% endif %}>EN</a>
   <span class="separator">|</span>
@@ -5,3 +10,4 @@
   <span class="separator">|</span>
   <a href="/hi/{{ page.slug }}.html" {% if page.lang == 'hi' %}class="active"{% endif %}>HI</a>
 </div>
+{% endunless %}
