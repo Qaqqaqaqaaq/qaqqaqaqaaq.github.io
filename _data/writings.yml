@@ -7,13 +7,19 @@
 #   3. newest first — the page lists them in the order they appear here
 #
 # Each entry needs `title.en` and somewhere to point: `file` for a PDF, or
-# `page` for a piece set as its own page on this site. Any language you leave
-# out falls back to English, so French and Hindi can be filled in later
-# without anything breaking. Drop `summary` for a bare title.
+# `page` for a piece set as its own page on this site. `kind` and `date` show
+# up together as the subtitle, e.g. "Essay, September 2026" — the date is
+# written once and is not translated. Any language you leave out falls back to
+# English, so French and Hindi can be filled in later without anything
+# breaking. Drop `summary` for a bare title.
 # ---------------------------------------------------------------------------
 
 # - file: /pdf2/my-essay.pdf
-#   date: 2026
+#   date: September 2026
+#   kind:
+#     en: Essay
+#     fr: Essai
+#     hi: लेख
 #   title:
 #     en: The title in English
 #     fr: Le titre en français
@@ -24,5 +30,10 @@
 #     hi: इसके बारे में एक-दो लाइनें।
 
 - page: /writings/trail-of-the-dead.html
+  date: September 2026
+  kind:
+    en: Essay
+    fr: Essai
+    hi: लेख
   title:
     en: The Trail of the Dead

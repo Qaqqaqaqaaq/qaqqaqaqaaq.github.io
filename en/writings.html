@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Writings
+title: Writing
 lang: en
 slug: writings
 ---
@@ -10,18 +10,21 @@ slug: writings
 {% assign count = items | size %}
 
 <section>
-  <h1>Writings</h1>
+  <h1>Writing</h1>
 
 
   {% if count > 0 %}
     <div class="entries">
       {% for w in items %}
         {% assign ttl = w.title[page.lang] | default: w.title.en %}
+        {% assign kind = w.kind[page.lang] | default: w.kind.en %}
         {% assign blurb = w.summary[page.lang] | default: w.summary.en %}
         <div class="entry">
           <h2>{% if w.page %}<a href="{{ w.page }}">{{ ttl }}</a>{% else %}{{ ttl }}{% endif %}</h2>
-          {% if w.date %}
-            <div class="entry-meta"><span>{{ w.date }}</span></div>
+          {% if kind or w.date %}
+            <div class="entry-meta">
+              <span>{{ kind }}{% if kind and w.date %}, {% endif %}{{ w.date }}</span>
+            </div>
           {% endif %}
           {% if blurb %}<p>{{ blurb }}</p>{% endif %}
           {% if w.file %}
