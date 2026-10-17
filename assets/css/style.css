@@ -325,9 +325,9 @@ strong { font-weight: 600; }
 
 .hero-right p:first-child::first-letter {
   float: left;
-  font-size: 3.1rem;
-  line-height: 0.82;
-  padding: 0.08em 0.09em 0 0;
+  font-size: 3.89rem;
+  line-height: 0.97;
+  padding: 0.02em 0.08em 0 0;
   color: var(--maroon);
   font-weight: 500;
 }
