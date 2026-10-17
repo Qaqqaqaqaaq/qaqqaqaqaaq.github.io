@@ -18,21 +18,16 @@ slug: writings
     <div class="entries">
       {% for w in items %}
         {% assign ttl = w.title[page.lang] | default: w.title.en %}
-        {% assign kind = w.kind[page.lang] | default: w.kind.en %}
         {% assign blurb = w.summary[page.lang] | default: w.summary.en %}
         <div class="entry">
           <h2>{% if w.page %}<a href="{{ w.page }}">{{ ttl }}</a>{% else %}{{ ttl }}{% endif %}</h2>
-          {% if kind or w.date %}
-            <div class="entry-meta">
-              {% if kind %}<span>{{ kind }}</span>{% endif %}
-              {% if w.date %}<span>{{ w.date }}</span>{% endif %}
-            </div>
+          {% if w.date %}
+            <div class="entry-meta"><span>{{ w.date }}</span></div>
           {% endif %}
           {% if blurb %}<p>{{ blurb }}</p>{% endif %}
-          {% if w.page or w.file %}
+          {% if w.file %}
             <div class="entry-links">
-              {% if w.page %}<a href="{{ w.page }}">{{ t.read }}</a>{% endif %}
-              {% if w.file %}<a href="{{ w.file }}" target="_blank" rel="noopener">{{ t.pdf }}</a>{% endif %}
+              <a href="{{ w.file }}" target="_blank" rel="noopener">{{ t.pdf }}</a>
             </div>
           {% endif %}
         </div>
