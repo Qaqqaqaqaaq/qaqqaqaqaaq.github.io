@@ -621,6 +621,34 @@ html[lang="hi"] .hero-right p:first-child::first-letter {
   margin-top: 54px;
 }
 
+.sources {
+  margin-top: 46px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule-faint);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.sources h2 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--ink-faint);
+  margin-bottom: 12px;
+}
+
+.sources ul { list-style: none; }
+
+/* hanging indent, as a bibliography is set */
+.sources li {
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+  margin-bottom: 9px;
+  line-height: 1.5;
+}
+
+.sources li:last-child { margin-bottom: 0; }
+
 .essay-foot {
   margin-top: 46px;
   padding-top: 18px;
